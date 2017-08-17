@@ -20,5 +20,5 @@ from treatment.views import index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^/', index),
+    url(r'$', index),
 ]
