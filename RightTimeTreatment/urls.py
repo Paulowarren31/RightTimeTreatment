@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 
-from treatment.views import index
+from treatment.views import index, create, post_new, test
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'$', index),
+    url(r'^$', index),
+    url(r'^test', test),
+    url(r'^create/', create),
+    url(r'^post/new/$', post_new, name='post_new'),
+    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    url(r'^accounts/profile/$', index),
 ]
